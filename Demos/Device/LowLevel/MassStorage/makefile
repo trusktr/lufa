@@ -11,13 +11,21 @@
 
 # Run "make help" for target help.
 
-MCU          = at90usb1287
+#Specify the type of chip you have.
+MCU          = atmega16u2
+
+#specify the architecture of the chip.
 ARCH         = AVR8
-BOARD        = USBKEY
-F_CPU        = 8000000
+
+#specify the board.
+BOARD        = UNO
+
+#specify the clock speed of the chip.
+F_CPU        = 16000000
+
 F_USB        = $(F_CPU)
 OPTIMIZATION = s
-TARGET       = MassStorage
+TARGET       = MassStorage # the name of the output files.
 SRC          = $(TARGET).c Descriptors.c Lib/DataflashManager.c Lib/SCSI.c $(LUFA_SRC_USB)
 LUFA_PATH    = ../../../../LUFA
 CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -IConfig/
